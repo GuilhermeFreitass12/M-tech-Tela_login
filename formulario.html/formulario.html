@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+    <header>
+        <h1>Servidor M-tech</h1>
+    </header>
+
+<div class="formulario">
+    <div class="portal">
+        <h2>Bem-Vindo</h2><br><br>
+        <p>algum problema? <br> <br><a href="google.com"></a>Fale conosco</p>
+    </div>
+    <div class="login">
+        <h3>Formulário de Cadastro</h3>
+        <form onsubmit="return validarFormulario()">
+            <label>Nome: <input type="text" id="nome"></label><br><br>
+            <label>Email: <input type="email" id="email"></label><br><br>
+            <label>Senha: <input type="password" id="senha"></label><br><br>
+            <button type="submit">Enviar</button>
+            <p id="mensagemErro" style="color: red;"></p>
+        </form>
+    </div>
+    </div>
+        
+   
+    <footer>
+        <ol>Desenvolivido por: Guilherme Freitas</ol>
+        Brasilia-df
+    </footer>
+    <script>
+        function validarFormulario() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const mensagemErro = document.getElementById('mensagemErro');
+            mensagemErro.textContent = '';
+            if (!nome) {
+                mensagemErro.textContent = 'Por favor, insira seu nome.';
+                return false;
+            }
+            if (!email) {
+                mensagemErro.textContent = 'Por favor, insira seu email.';
+                return false;
+            }
+            if (!senha || senha.length < 6) {
+                mensagemErro.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+                return false;
+            }
+            alert('Formulário enviado com sucesso!');
+            return true;
+        }
+    </script>
+</body>
+
+</html>
